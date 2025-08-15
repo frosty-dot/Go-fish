@@ -17,8 +17,30 @@ class Deck():
                 card = Card(rank. suit)
 
                 # Create a card object (set the rank and the suit)
-                # Add the object to the empty deck_of_cards list
+    def shuffle(self):
+        for index in range(len(self.deck_of_cards) - 1):
+            num = random.randint(index + 1, len(self.deck_of_cards) - 1)
+            temp = self.deck_of_cards[index]
+            # print("Index: {} Num: {}".format(index, num))
+            self.deck_of_cards[index] = self.deck_of_cards[num]
+            self.deck_of_cards[num] = temp
+
+    def deal_card(self, player, player_name):
+    # Check if there are cards in the deck
+        if len(self.deck_of_cards) > 0:
+            random_card = random.choice(self.deck_of_cards)
+            player.hand.append(random_card)
+            self.deck_of_cards.remove(random_card)
+        else:
+            print("empty deck!")
+    
+        
+
 
     # TODO: Create a method/function that displays the entire deck of cards
+    def display_deck(self):
+        for card in self.deck_of_cards:
+            card.print_card()
 
-# TESTING: Create a deck of cards object and print them to the console
+
+

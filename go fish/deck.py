@@ -14,8 +14,8 @@ class Deck():
         self.deck_of_cards = []
         for suit in suits:
             for rank in range(1, 14):
-                card = Card(rank. suit)
-
+                card = Card(rank, suit)
+                self.deck_of_cards.append(card)
                 # Create a card object (set the rank and the suit)
     def shuffle(self):
         for index in range(len(self.deck_of_cards) - 1):
@@ -25,7 +25,7 @@ class Deck():
             self.deck_of_cards[index] = self.deck_of_cards[num]
             self.deck_of_cards[num] = temp
 
-    def deal_card(self, player, player_name):
+    def deal_card(self, player):
     # Check if there are cards in the deck
         if len(self.deck_of_cards) > 0:
             random_card = random.choice(self.deck_of_cards)

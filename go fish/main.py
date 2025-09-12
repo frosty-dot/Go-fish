@@ -6,9 +6,7 @@ class GoFishGame:
         self.deck = Deck()       
         self.players = []        
         self.is_playing = True
-    def set_up(self, num_of_players):
-        self.deal_pile = Deck()
-        self.deal_pile.shuffle()
+    
     def game_setup(self):
         self.deck.shuffle()
         num_players = int(input("How many players? "))
@@ -17,20 +15,19 @@ class GoFishGame:
             New_player = player(name)
             self.players.append(New_player)
             if num_players < 5:
-                for i in range(7):
-                    self.deal_pile.deal_one_card(New_player)
+                for i in range(5):
+                    self.deck.deal_card(New_player)
 
             else:
                 for i in range (5):
-                    self.deal_pile.deal_one_card(New_player)
+                    self.deck.deal_card(New_player)
 
 
 def testing():
     go_fish_game = GoFishGame()
-    go_fish_game.set_up(5)
-    print(go_fish_game.players)
-    
-    
+    go_fish_game.game_setup()
+    #print(go_fish_game.players)
+testing()
         
                     
             

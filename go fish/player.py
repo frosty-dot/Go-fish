@@ -16,7 +16,14 @@ class player:
 def display_hand(self):
     for card in self.hand:
         card.print_card() 
-    
+
+
+    def check_my_hand(self, asking_rank):
+        for card in self.hand:
+            pass
+
+
+
             
         
     
